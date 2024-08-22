@@ -1,0 +1,14 @@
+services:
+  node:
+    image: cratd2c/cratd2c_chain:latest
+    volumes:
+      - ./cratd2cchain1:/work/cratd2cchain
+      - ./genesis.json:/work/genesis.json
+    restart: always
+    network_mode: host
+    env_file:
+      - ./node.env
+    ports:
+      - '20304:20304'
+      - '8546:8546'
+      - '9556:9556'
